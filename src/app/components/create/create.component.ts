@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {MusicModel} from "../../model/music.model";
 import {ApiService} from "../../api/api.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create',
@@ -12,6 +12,7 @@ export class CreateComponent {
   public formGroup: FormGroup
   constructor(
     private apiService: ApiService,
+    private router: Router
   ) {
     this.formGroup = new FormGroup({
       title: new FormControl("", [Validators.required]),
@@ -28,7 +29,7 @@ export class CreateComponent {
 
   createMusic() {
     this.apiService.createMusicReactiveForm(this.formGroup.value).subscribe((data) => {
-      console.log(data);
+      this.router.navigate(['/home']).then(r => console.log(r));
     });
   }
 

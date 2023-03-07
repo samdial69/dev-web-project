@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MusicModel} from "../../model/music.model";
 import {ApiService} from "../../api/api.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -26,7 +26,8 @@ export class EditComponent implements OnInit {
   });
   constructor(
     private route: ActivatedRoute,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -58,7 +59,7 @@ export class EditComponent implements OnInit {
 
   editMusicReactiveForm() {
     this.apiService.updateMusic(this.id, this.editForm.value).subscribe((data) => {
-      console.log(data);
+      this.router.navigate(['/home']).then(r => console.log(r));
     });
   }
 }
