@@ -63,4 +63,8 @@ export class ApiService{
   deleteMusic(id: number): Observable<any>{
     return this.http.delete('http://localhost:3000/musics/' + id, {observe: 'response'});
   }
+
+  search(title: string): Observable<HttpResponse<MusicModel[]>>{
+    return this.http.get<MusicModel[]>('http://localhost:3000/musics/title/' + title, {observe: 'response'});
+  }
 }

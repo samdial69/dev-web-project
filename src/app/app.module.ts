@@ -19,8 +19,9 @@ import {MatChipsModule} from "@angular/material/chips";
 import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
 import {MatLineModule} from "@angular/material/core";
 import {MatListModule} from "@angular/material/list";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import {MatInputModule} from "@angular/material/input";
     MatLineModule,
     MatListModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

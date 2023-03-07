@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit{
 
   public musics: MusicModel[] | null = [];
 
+  public searchText: string = "";
+
   vuecard : boolean = true;
   vuelist : boolean = false;
 
@@ -41,6 +43,12 @@ export class HomeComponent implements OnInit{
   delete(id: number) {
     this.apiService.deleteMusic(id).subscribe((data) => {
       this.getMusics();
+    });
+  }
+
+  search(){
+    this.apiService.search(this.searchText).subscribe((data) => {
+      this.musics = data.body;
     });
   }
 }
