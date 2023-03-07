@@ -1,1 +1,37 @@
-<p>random works!</p>
+<div class="container">
+  <button mat-raised-button (click)="getRandomMusic()" class="button" color="primary">Reload random</button>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ music?.title}}</mat-card-title>
+      <mat-card-subtitle>Artist:  {{music?.artist }}</mat-card-subtitle>
+      <mat-card-subtitle>Album: {{ music?.album }}</mat-card-subtitle>
+      <mat-card-subtitle>Duration: {{ music?.duration }}</mat-card-subtitle>
+      <mat-card-subtitle>Date: {{ music?.date | date }}</mat-card-subtitle>
+      <mat-card-subtitle>Date: {{ music?.date | date }}</mat-card-subtitle>
+      <mat-card-subtitle>Style:
+        <mat-chip-set
+          class="example-chip"
+          cdkDropList
+          cdkDropListOrientation="horizontal">
+          <mat-chip
+            class="example-box"
+            cdkDrag
+            *ngFor="let style of music?.styles">
+            {{ style }}
+          </mat-chip>
+        </mat-chip-set>
+
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{music?.picture}}" alt="{{music?.title}}">
+    <mat-card-content>
+      <p>
+        {{ music?.description || 'No description'}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" [routerLink]="['/edit',music?.id]">Edit</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
