@@ -10,10 +10,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenubarComponent } from './components/shared/menubar/menubar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
-import {RouterLink, RouterModule, RouterOutlet} from "@angular/router";
+import { RouterModule} from "@angular/router";
 import {MatCardModule} from "@angular/material/card";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {routes} from "./routes/routes";
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatChipsModule} from "@angular/material/chips";
+import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
+import {MatLineModule} from "@angular/material/core";
+import {MatListModule} from "@angular/material/list";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
@@ -32,8 +39,14 @@ import {routes} from "./routes/routes";
     MatButtonModule,
     HttpClientModule,
     MatCardModule,
-    RouterLink,
-    RouterOutlet
+    MatButtonToggleModule,
+    MatChipsModule,
+    CdkDropList,
+    CdkDrag,
+    MatLineModule,
+    MatListModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

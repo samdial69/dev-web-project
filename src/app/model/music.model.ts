@@ -7,6 +7,6 @@ export interface MusicModel {
   duration: string;
   date: string;
 
-  style: string[];
+  styles: string[];
   picture: string;
 }

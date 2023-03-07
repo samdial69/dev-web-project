@@ -1,0 +1,25 @@
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.example-card {
+  max-width: 500px;
+  margin-right: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem auto auto;
+  justify-content: center;
+}
+.container > *{
+  flex: 1 1 500px;
+}
+
+button{
+  margin-right: 1rem;
+}

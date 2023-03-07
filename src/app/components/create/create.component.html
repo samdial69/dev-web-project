@@ -1,1 +1,31 @@
-<p>create works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="createMusic()" class="container">
+   <mat-form-field appearance="fill">
+     <mat-label>Title</mat-label>
+     <input matInput formControlName="title">
+   </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Album</mat-label>
+      <input matInput formControlName="album">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Artist</mat-label>
+      <input matInput formControlName="artist">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Duration</mat-label>
+      <input matInput formControlName="duration">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Styles</mat-label>
+      <input matInput formControlName="styles">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>

@@ -1,1 +1,57 @@
-<p>home works!</p>
+<div>
+  <div class="buttons">
+    <mat-button-toggle-group name="vue" aria-label="Font Style">
+      <mat-button-toggle (click)="vueCard()">Vue card</mat-button-toggle>
+      <mat-button-toggle (click)="vueList()">Vue liste</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <button mat-raised-button color="primary" [routerLink]="['/create']">Create new music</button>
+
+  <div class="container" *ngIf="vuecard">
+    <mat-card class="example-card" *ngFor="let music of musics">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ music.title }}</mat-card-title>
+          <mat-card-subtitle>Album : {{music.album}}</mat-card-subtitle>
+          <mat-card-subtitle>Artist : {{music.artist}}</mat-card-subtitle>
+          <mat-card-subtitle>Duration : {{music.duration}}</mat-card-subtitle>
+          <mat-card-subtitle>Date : {{music.date | date}}</mat-card-subtitle>
+          <mat-card-subtitle>Style:
+            <mat-chip-set
+              class="example-chip"
+              cdkDropList
+              cdkDropListOrientation="horizontal">
+              <mat-chip
+                class="example-box"
+                cdkDrag
+                *ngFor="let style of music.styles">
+                {{ style }}
+              </mat-chip>
+            </mat-chip-set>
+
+          </mat-card-subtitle>
+          <img mat-card-sm-image src="{{ music.picture }}" alt="{{music.title}}" >
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        {{ music.description }}
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" [routerLink]="['/edit',music.id]">Edit</button>
+        <button mat-flat-button color="accent" (click)="delete(music.id)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="vuelist">
+    <mat-list *ngFor="let music of musics">
+      <mat-list-item>
+        <span matListItemTitle>{{ music.title }} - {{ music.artist }}</span>
+        <span matListItemLine>Alb:{{ music.album}}  -  Dur: {{ music.duration }} </span>
+        <button mat-flat-button color="primary" [routerLink]="['/edit',music.id]">Edit</button>
+        <button mat-flat-button color="accent" (click)="delete(music.id)">Delete</button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</div>
