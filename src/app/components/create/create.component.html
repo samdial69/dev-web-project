@@ -23,9 +23,20 @@
       <mat-label>Date</mat-label>
       <input matInput formControlName="date">
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Styles</mat-label>
-      <input matInput formControlName="styles">
-    </mat-form-field>
+<!--     <mat-form-field appearance="fill">-->
+<!--        <mat-label formArrayName="styles">Styles</mat-label>-->
+<!--         <ng-container *ngFor="let style of formGroup?.get('styles')['controls']; let i=index">-->
+<!--            <input matInput formControlName="genre">-->
+<!--          </ng-container>-->
+<!--     </mat-form-field>-->
+  <div formArrayName="styles">
+    <div *ngFor="let style of getStyles.controls; let i=index">
+      <mat-form-field appearance="fill">
+        <mat-label>Style</mat-label>
+        <input matInput formControlName="{{i}}">
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary"  class="addStyle" (click)="addStyle()">Add Style</button>
+  </div>
     <button mat-raised-button color="primary" type="submit">Submit</button>
 </form>

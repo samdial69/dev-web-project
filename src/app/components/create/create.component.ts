@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ApiService} from "../../api/api.service";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -21,7 +21,9 @@ export class CreateComponent {
       album: new FormControl("", [Validators.required]),
       date: new FormControl("", [Validators.required]),
       duration: new FormControl("", [Validators.required]),
-      styles: new FormControl("", [Validators.required]),
+      styles: new FormArray([
+        new FormControl(null, [Validators.required]),
+      ]),
       picture: new FormControl("", [Validators.required]),
     })
   }
@@ -33,4 +35,11 @@ export class CreateComponent {
     });
   }
 
+  get getStyles() {
+    return <FormArray>this.formGroup.get('styles');
+  }
+
+  addStyle() {
+    this.getStyles.push(new FormControl(null, [Validators.required]));
+  }
 }
