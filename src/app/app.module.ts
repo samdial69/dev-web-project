@@ -7,6 +7,13 @@ import { EditComponent } from './components/edit/edit.component';
 import { RandomComponent } from './components/random/random.component';
 import {HomeComponent} from "./components/home/home.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenubarComponent } from './components/shared/menubar/menubar.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+import {RouterLink, RouterModule, RouterOutlet} from "@angular/router";
+import {MatCardModule} from "@angular/material/card";
+import {HttpClientModule} from "@angular/common/http";
+import {routes} from "./routes/routes";
 
 @NgModule({
   declarations: [
@@ -14,11 +21,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     CreateComponent,
     EditComponent,
-    RandomComponent
+    RandomComponent,
+    MenubarComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+    MatToolbarModule,
+    MatButtonModule,
+    HttpClientModule,
+    MatCardModule,
+    RouterLink,
+    RouterOutlet
   ],
   providers: [],
   bootstrap: [AppComponent]
